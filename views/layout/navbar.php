@@ -1,5 +1,5 @@
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand-md bgc-yellow navbar-dark">
+  <nav class="main-header navbar navbar-expand bgc-yellow navbar-dark">
       <div class="container">
           <a href="#" class="navbar-brand">
               <img src="assets/dist/img/LOGO1.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -12,25 +12,28 @@
 
           <div class="collapse navbar-collapse order-3" id="navbarCollapse">
               <!-- Left navbar links -->
-              <ul class="navbar-nav ml-auto">
+              <ul class="navbar-nav">
                   <li class="nav-item">
-                      <a href="#" class="nav-link nvlnk">Dashboard</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="#" class="nav-link nvlnk">Menu 2</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                      <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link nvlnk dropdown-toggle">Menu 3 Dropdown</a>
-                      <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                          <li><a href="#" class="dropdown-item">ey 1 </a></li>
-                          <li><a href="#" class="dropdown-item">ey 2</a></li>
-                      </ul>
-                  </li>
-                  <li class="nav-item">
-                      <a href="#" class="nav-link nvlnk"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                      <a href="index3.html" class="nav-link nvlnk">Dashboard</a>
                   </li>
               </ul>
           </div>
+
+          <!-- Right navbar links -->
+          <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+              <!-- Messages Dropdown Menu -->
+              <!-- <li class="nav-item">
+                  <div class="nav-link d-none d-sm-inline-block">
+                      <span class="mailbox-read-time text-light"><i id="date"></i><i id="clock"></i></span>
+                  </div>
+              </li> -->
+              <li class="nav-item">
+                  <a class="nav-link nvlnk" href="<?= $url; ?>app/logout.php" onclick="confirm('Yakin ingin keluar dari halaman ini?')">
+                      <i class="fas fa-sign-out-alt"></i>
+                      Logout
+                  </a>
+              </li>
+          </ul>
       </div>
   </nav>
   <!-- /.navbar -->
