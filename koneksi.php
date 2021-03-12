@@ -2,7 +2,7 @@
 define("HOST", "localhost");
 define("USER", "root");
 define("PASS", "");
-define("DBNAME", "db_poopiyohe");
+define("DBNAME", "phpdasar");
 
 $mysqli = new mysqli(HOST, USER, PASS, DBNAME);
 
