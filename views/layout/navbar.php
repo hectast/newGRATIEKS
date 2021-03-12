@@ -1,5 +1,5 @@
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand bgc-yellow navbar-dark">
+  <nav class="main-header navbar navbar-expand-md bgc-yellow navbar-dark">
       <div class="container">
           <a href="#" class="navbar-brand">
               <img src="assets/dist/img/LOGO1.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -13,6 +13,9 @@
           <div class="collapse navbar-collapse order-3" id="navbarCollapse">
               <!-- Left navbar links -->
               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                      <a href="index3.html" class="nav-link nvlnk">Dashboard</a>
+                  </li>
                   <li class="nav-item">
                       <a href="index3.html" class="nav-link nvlnk">Dashboard</a>
                   </li>
