@@ -22,9 +22,12 @@ $row = mysqli_fetch_assoc($result);
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4><?= $ttl; ?></h4><br>
+                            <h4><?= $ttl; ?></h4><br><br>
+                            
+                            <h1>Komoditas : <?= $row['komodi'] ?></h1>
+                            <h3 style="color: #949191;">Sub Sektor : <?= $row['subsektor'];?></h3><br>
                             <table class="table table-striped">
-                                <tr>
+                                <!-- <tr>
                                     <td>Komoditas</td>
                                     <td>:</td>
                                     <td><?= $row['komodi'] ?></td>
@@ -33,7 +36,7 @@ $row = mysqli_fetch_assoc($result);
                                     <td>Sub Sektor</td>
                                     <td>:</td>
                                     <td><?= $row['subsektor'] ?></td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <td>Kapasitas Produksi Perkali Panen (Ton / Ha)</td>
                                     <td>:</td>
@@ -42,7 +45,20 @@ $row = mysqli_fetch_assoc($result);
                                 <tr>
                                     <td>Olahan Primer</td>
                                     <td>:</td>
-                                    <td><?= $row['olahan'] ?></td>
+                                    <td>
+                                        <?php
+                                            if ($row['olahan'] == 'Ada') {
+                                        ?>
+                                            <div class="badge badge-success"><?= $row['olahan'] ?></div>
+                                        <?php
+                                        } 
+                                            else {
+                                        ?>
+                                            <div class="badge badge-danger"><?= $row['olahan'] ?></div>
+                                        <?php
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Bentuk Olahan</td>
@@ -57,12 +73,38 @@ $row = mysqli_fetch_assoc($result);
                                 <tr>
                                     <td>Penerapan GAP</td>
                                     <td>:</td>
-                                    <td><?= $row['gap'] ?></td>
+                                    <td>
+                                    <?php
+                                            if ($row['gap'] == 'Sudah') {
+                                        ?>
+                                            <div class="badge badge-success"><?= $row['gap'] ?></div>
+                                        <?php
+                                        } 
+                                            else {
+                                        ?>
+                                            <div class="badge badge-danger"><?= $row['gap'] ?></div>
+                                        <?php
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Gudang Penyimpanan</td>
                                     <td>:</td>
-                                    <td><?= $row['gudang'] ?></td>
+                                    <td>
+                                    <?php
+                                            if ($row['gudang'] == 'Ada') {
+                                        ?>
+                                            <div class="badge badge-success"><?= $row['gudang'] ?></div>
+                                        <?php
+                                        } 
+                                            else {
+                                        ?>
+                                            <div class="badge badge-danger"><?= $row['gudang'] ?></div>
+                                        <?php
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Pemasaran Saat Ini</td>
@@ -97,12 +139,25 @@ $row = mysqli_fetch_assoc($result);
                                 <tr>
                                     <td>Jumlah Poktan</td>
                                     <td>:</td>
-                                    <td><?= $row['komodi'] ?></td>
+                                    <td><?= $row['poktan'] ?></td>
                                 </tr>
                                 <tr>
                                     <td>Keberadaan Penyuluh</td>
                                     <td>:</td>
-                                    <td><?= $row['penyuluh'] ?></td>
+                                    <td>
+                                    <?php
+                                            if ($row['penyuluh'] == 'Ada') {
+                                        ?>
+                                            <div class="badge badge-success"><?= $row['penyuluh'] ?></div>
+                                        <?php
+                                        } 
+                                            else {
+                                        ?>
+                                            <div class="badge badge-danger"><?= $row['penyuluh'] ?></div>
+                                        <?php
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Infrastruktur Penunjang</td>
@@ -117,7 +172,20 @@ $row = mysqli_fetch_assoc($result);
                                 <tr>
                                     <td>Koperasi</td>
                                     <td>:</td>
-                                    <td><?= $row['koperasi'] ?></td>
+                                    <td>
+                                    <?php
+                                            if ($row['koperasi'] == 'Ada') {
+                                        ?>
+                                            <div class="badge badge-success"><?= $row['koperasi'] ?></div>
+                                        <?php
+                                        } 
+                                            else {
+                                        ?>
+                                            <div class="badge badge-danger"><?= $row['koperasi'] ?></div>
+                                        <?php
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Kemitraan</td>
@@ -127,7 +195,20 @@ $row = mysqli_fetch_assoc($result);
                                 <tr>
                                     <td>Binaan Pemda / Ditjen Teknis</td>
                                     <td>:</td>
-                                    <td><?= $row['bina'] ?></td>
+                                    <td>
+                                    <?php
+                                            if ($row['bina'] == 'Sudah') {
+                                        ?>
+                                            <div class="badge badge-success"><?= $row['bina'] ?></div>
+                                        <?php
+                                        } 
+                                            else {
+                                        ?>
+                                            <div class="badge badge-danger"><?= $row['bina'] ?></div>
+                                        <?php
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Jenis Bantuan</td>
@@ -152,11 +233,11 @@ $row = mysqli_fetch_assoc($result);
                                 <tr>
                                     <td>Tanggal / Waktu Input</td>
                                     <td>:</td>
-                                    <td><?= $row['tgl'];?> : <?= $row['waktu'] ?></td>
+                                    <td><?= $row['tgl']; ?> : <?= $row['waktu'] ?></td>
                                 </tr>
                             </table>
-                            <div class="mt-2"> 
-                            <a href="datagratieks.php" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
+                            <div class="mt-2">
+                                <a href="datagratieks.php" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
                             </div>
                         </div>
                     </div>

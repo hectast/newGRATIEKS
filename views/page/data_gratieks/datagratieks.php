@@ -17,7 +17,7 @@
             <div class="card">
                 <div class="card-body">
                 <h4><?= $ttl; ?></h4>
-                <a href="tambahdaatagratieks.php" class="btn btn-primary"><i class="fa fa-plus"></i> Data Gratieks </a><br><br>
+                <a href="tambahdatagratieks.php" class="btn btn-primary"><i class="fa fa-plus"></i> Data Gratieks </a><br><br>
                 <table id="example1" class="table table-striped">
                     <thead>
                         <tr>
@@ -38,7 +38,7 @@
                             <td><?= $no++ ?></td>
                             <td><?= $row['komodi'] ?></td>
                             <td><?= $row['subsektor'] ?></td>
-                            <td><a href="detail.php?id=<?= $row['id'] ?>" class="btn btn-xs btn-success"><i class="fa fa-search"></i></a> <a href="" class="btn btn-xs btn-info"><i class="fa fa-print"></i></a> <a href="" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a> <a href="" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a></td>
+                            <td><a href="detail.php?id=<?= $row['id'] ?>" class="btn btn-xs btn-success"><i class="fa fa-search"></i></a> <a href="" class="btn btn-xs btn-info"><i class="fa fa-print"></i></a> <a href="" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a> <a href="hapusdata.php?id=<?= $row['id'] ?>" onclick="return confirm('Anda Yakin?')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a></td>
                         </tr>
                         <?php
                         }
