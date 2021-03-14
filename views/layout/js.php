@@ -47,19 +47,31 @@
         //-------------
         //- DONUT CHART -
         //-------------
+        <?php   
+            $query_donut_hortikultura1 = $mysqli->query("SELECT SUM(desa) as jumlah_desa FROM tbl_gratieks WHERE subsektor='Hortikultura'");
+            $rows_hortikultura1 = $query_donut_hortikultura1->fetch_assoc();
+
+            $query_donut_tanaman_pangan1 = $mysqli->query("SELECT SUM(desa) as jumlah_desa FROM tbl_gratieks WHERE subsektor='Tanaman Pangan'");
+            $rows_tanaman_pangan1 = $query_donut_tanaman_pangan1->fetch_assoc();
+
+            $query_donut_perkebunan1 = $mysqli->query("SELECT SUM(desa) as jumlah_desa FROM tbl_gratieks WHERE subsektor='Perkebunan'");
+            $rows_perkebunan1 = $query_donut_perkebunan1->fetch_assoc();
+
+            $query_donut_peternakan1 = $mysqli->query("SELECT SUM(desa) as jumlah_desa FROM tbl_gratieks WHERE subsektor='Peternakan'");
+            $rows_peternakan1 = $query_donut_peternakan1->fetch_assoc();
+        ?>
         // Get context with jQuery - using jQuery's .get() method.
+        
         var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
         var donutData = {
             labels: [
-                'Chrome',
-                'IE',
-                'FireFox',
-                'Safari',
-                'Opera',
-                'Navigator',
+                'Hortikultura',
+                'Tanaman Pangan',
+                'Perkebunan',
+                'Peternakan',
             ],
             datasets: [{
-                data: [700, 500, 400, 600, 300, 100],
+                data: [<?= $rows_hortikultura1['jumlah_desa'] ?>, <?= $rows_tanaman_pangan1['jumlah_desa'] ?>, <?= $rows_perkebunan1['jumlah_desa'] ?>, <?= $rows_peternakan1['jumlah_desa'] ?>],
                 backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
             }]
         }
@@ -78,9 +90,33 @@
         //-------------
         //- PIE CHART -
         //-------------
+        <?php   
+            $query_donut_hortikultura = $mysqli->query("SELECT * FROM tbl_gratieks WHERE subsektor='Hortikultura'");
+            $rows_hortikultura = mysqli_num_rows($query_donut_hortikultura);
+
+            $query_donut_tanaman_pangan = $mysqli->query("SELECT * FROM tbl_gratieks WHERE subsektor='Tanaman Pangan'");
+            $rows_tanaman_pangan = mysqli_num_rows($query_donut_tanaman_pangan);
+
+            $query_donut_perkebunan = $mysqli->query("SELECT * FROM tbl_gratieks WHERE subsektor='Perkebunan'");
+            $rows_perkebunan = mysqli_num_rows($query_donut_perkebunan);
+
+            $query_donut_peternakan = $mysqli->query("SELECT * FROM tbl_gratieks WHERE subsektor='Peternakan'");
+            $rows_peternakan = mysqli_num_rows($query_donut_peternakan);
+        ?>
         // Get context with jQuery - using jQuery's .get() method.
         var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-        var pieData = donutData;
+        var pieData = {
+            labels: [
+                'Hortikultura',
+                'Tanaman Pangan',
+                'Perkebunan',
+                'Peternakan',
+            ],
+            datasets: [{
+                data: [<?= $rows_hortikultura; ?>, <?= $rows_tanaman_pangan; ?>, <?= $rows_perkebunan; ?>, <?= $rows_peternakan; ?>],
+                backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+            }]
+        }
         var pieOptions = {
             maintainAspectRatio: false,
             responsive: true,
