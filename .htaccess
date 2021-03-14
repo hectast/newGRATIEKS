@@ -1,0 +1,14 @@
+RewriteEngine On
+RewriteBase /newGRATIEKS/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+ErrorDocument 404 http://localhost/newGRATIEKS/404.php
+
+<Files koneksi.php>
+	Order Allow,Deny
+	Deny from all
+</Files>
+
+Options All -Indexes
