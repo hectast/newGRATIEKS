@@ -98,6 +98,10 @@
                         </div>
                     </div>
                 </form>
+
+                <div class="text-center mt-3">
+                    Belum punya akun? <a href="register.php">daftar disini</a>
+                </div>
                 
             </div>
         </div>
@@ -116,7 +120,14 @@
 <script src="<?= $url; ?>assets/dist/js/demo.js"></script>
 <!-- Select2 -->
 <script src="<?= $url; ?>assets/plugins/select2/js/select2.full.min.js"></script>
-</script>
+<!-- mematikan fungsi klik kanan -->
+<!-- <script>
+$(document).ready(function(){
+     $(document).bind("contextmenu",function(e){
+        return false;
+    });
+});
+</script> -->
 
 </body>
 </html>
