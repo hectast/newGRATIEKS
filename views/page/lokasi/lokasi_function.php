@@ -17,7 +17,7 @@ function tampil_data($mysqli)
     <td>
     	<form action="" method="post">
     	<input type="hidden" name="id_lokasi" value="<?= $id_lokasi1 ?>">
-    	<button type="button" class="btn btn-xs btn-info" data-toggle="modal" data-target="#defaultModal<?= $id_lokasi1; ?>"><i class="fa fa-edit"></i></button><button type="submit" name="hapus_data" onclick="return confirm('Yakin menghapus data ini?')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button>
+    	<button type="button" class="btn btn-xs btn-info" data-toggle="modal" data-target="#defaultModal<?= $id_lokasi1; ?>"><i class="fa fa-edit"></i></button> <button type="submit" name="hapus_data" onclick="return confirm('Yakin menghapus data ini?')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button>
     	</form>
     </td>
    	</tr>
@@ -36,8 +36,8 @@ function tampil_data($mysqli)
                             <input type="hidden" name="id_lokasi" value="<?= $id_lokasi1; ?>">
                             <div class="form-group">
                                 <label>Nama Lokasi (Desa/Kec/Kab) - </label>
-                                <select class="form-control select2" id="<?= $no++; ?>" name="nama_lokasi">
-                                    <option>--Pilih Lokasi--</option>
+                                <select class="form-control select2" id="<?= $no; ?>" name="nama_lokasi">
+                                    <option><?= $nama_lokasi1; ?></option>
                                     <?php
                                     $query2 = $mysqli->query("SELECT kec FROM tbl_gratieks");
                                     while($row2 = $query2->fetch_assoc()) {
