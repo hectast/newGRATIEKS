@@ -8,10 +8,11 @@ function tampil_data($mysqli)
     $result = $mysqli->query($query);
     while($row = mysqli_fetch_assoc($result)){
     	$id_lokasi1 = $row['id'];
+        $nama_lokasi1 = $row['nama_lokasi'];
     ?>
     <tr>
     <td><?= $no++; ?></td>
-    <td><?= $row['nama_lokasi']; ?> <?= $id_lokasi1 ?></td>
+    <td><?= $row['nama_lokasi']; ?></td>
     <td><a href="<?= $row['latlong']; ?>"><?= $row['latlong']; ?></a></td>
     <td>
     	<form action="" method="post">
@@ -34,28 +35,15 @@ function tampil_data($mysqli)
                         <div class="modal-body">
                             <input type="hidden" name="id_lokasi" value="<?= $id_lokasi1; ?>">
                             <div class="form-group">
-                                <label for="pilih-lokasi">Nama Lokasi (Desa/Kec/Kab)</label>
-                                <select class="form-control select2 <?= $id_lokasi1; ?>" id="pilih-lokasi" name="nama_lokasi">
+                                <label>Nama Lokasi (Desa/Kec/Kab) - </label>
+                                <select class="form-control select2" id="<?= $no++; ?>" name="nama_lokasi">
                                     <option>--Pilih Lokasi--</option>
                                     <?php
-                                    $query2 = "SELECT * FROM tbl_gratieks";
-                                    $to_lokasi2 = $mysqli->prepare($query2);
-                                    $to_lokasi2->execute();
-                                    $result_lokasi2 = $to_lokasi2->get_result();
-                                    while ($row_lokasi2 = $result_lokasi2->fetch_object()) {
-                                        if ($row_lokasi2->kec == $row['nama_lokasi']) {
-                                            echo "";
-                                    ?>
-                                            <option value="<?= $row_lokasi2->kec; ?>" selected><?= $row_lokasi2->kec; ?></option>
-                                        <?php
-                                            echo "";
-                                        } else {
-                                            echo "";
-                                        ?>
-                                            <option value="<?= $row_lokasi2->kec; ?>"><?= $row_lokasi2->kec; ?></option>
-                                    <?php
-                                            echo "";
-                                        }
+                                    $query2 = $mysqli->query("SELECT kec FROM tbl_gratieks");
+                                    while($row2 = $query2->fetch_assoc()) {
+                                        echo "
+                                            <option value='{$row2['kec']}'>{$row2['kec']}</option>
+                                        ";
                                     }
                                     ?>
                                 </select>
@@ -77,9 +65,10 @@ function tampil_data($mysqli)
             </div>
         </div>
 
-		<script src="../../../assets/plugins/select2/js/select2.full.min.js"></script>
+        <script src="../../../assets/plugins/jquery/jquery.min.js"></script>
+        <script src="../../../assets/plugins/select2/js/select2.full.min.js"></script>
         <script>
-              $('.select2.<?= $id_lokasi1; ?>').select2({
+              $('select2.#<?= $no; ?>').select2({
                 theme: 'bootstrap4',
               });
         </script>
