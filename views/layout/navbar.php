@@ -28,6 +28,9 @@
                     </ul>
                   </li>
                   <li class="nav-item">
+                      <a href="<?= $url ?>views/page/lokasi/lokasi.php" class="nav-link nvlnk">Share Lokasi</a>
+                  </li>
+                  <li class="nav-item">
                       <a class="nav-link nvlnk" href="<?= $url; ?>app/logout.php" onclick="confirm('Yakin ingin keluar dari halaman ini?')">
                           <i class="fas fa-sign-out-alt"></i>
                           Logout
