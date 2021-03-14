@@ -1,3 +1,6 @@
+<?php
+    include "koneksi.php";
+?>
 <?php include 'views/layout/header.php'; ?>
 
 <?php include "views/layout/navbar.php"; ?>
@@ -37,7 +40,7 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
-                            <h3 class="card-title">Donut Chart</h3>
+                            <h3 class="card-title">Total Desa Di Setiap Sub Sektor</h3>
                             <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                         </div>
                         <!-- /.card-body -->
@@ -47,7 +50,7 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
-                            <h3 class="card-title">Pie Chart</h3>
+                            <h3 class="card-title">Total Komoditas Di Setiap Sub Sektor</h3>
                             <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                         </div>
                         <!-- /.card-body -->
