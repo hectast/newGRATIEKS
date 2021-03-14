@@ -38,7 +38,7 @@
                             <td><?= $no++ ?></td>
                             <td><?= $row['komodi'] ?></td>
                             <td><?= $row['subsektor'] ?></td>
-                            <td><a href="detail.php?id=<?= $row['id'] ?>" class="btn btn-xs btn-success"><i class="fa fa-search"></i></a> <a href="" class="btn btn-xs btn-info"><i class="fa fa-edit"></i></a> <a href="hapusdata.php?id=<?= $row['id'] ?>" onclick="return confirm('Anda Yakin?')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a></td>
+                            <td><a href="detail.php?id=<?= $row['id'] ?>" class="btn btn-xs btn-success"><i class="fa fa-search"></i></a> <a href="editdata.php?id=<?= $row['id'] ?>" class="btn btn-xs btn-info"><i class="fa fa-edit"></i></a> <a href="hapusdata.php?id=<?= $row['id'] ?>" onclick="return confirm('Anda Yakin?')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a></td>
                         </tr>
                         <?php
                         }
