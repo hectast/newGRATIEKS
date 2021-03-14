@@ -37,13 +37,19 @@ function tampil_data($mysqli)
                             <div class="form-group">
                                 <label>Nama Lokasi (Desa/Kec/Kab) - </label>
                                 <select class="form-control select2" id="<?= $no; ?>" name="nama_lokasi">
-                                    <option><?= $nama_lokasi1; ?></option>
+                                    <option>--Pilih Nama Lokasi--</option>
                                     <?php
-                                    $query2 = $mysqli->query("SELECT kec FROM tbl_gratieks");
+                                    $query2 = $mysqli->query("SELECT * FROM tbl_gratieks");
                                     while($row2 = $query2->fetch_assoc()) {
-                                        echo "
-                                            <option value='{$row2['kec']}'>{$row2['kec']}</option>
-                                        ";
+                                        if ($row2['kec'] == $nama_lokasi1) {                                            
+                                            echo "
+                                                <option value='{$row2['kec']}' selected>{$row2['kec']}</option>
+                                            ";
+                                        } else {
+                                            echo "
+                                                <option value='{$row2['kec']}'>{$row2['kec']}</option>
+                                            ";
+                                        }
                                     }
                                     ?>
                                 </select>
