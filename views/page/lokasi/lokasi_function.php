@@ -11,7 +11,7 @@ function tampil_data($mysqli)
     ?>
     <tr>
     <td><?= $no++; ?></td>
-    <td><?= $row['nama_lokasi']; ?> <?= $id_lokasi1 ?></td>
+    <td><?= $row['nama_lokasi']; ?></td>
     <td><a href="<?= $row['latlong']; ?>"><?= $row['latlong']; ?></a></td>
     <td>
     	<form action="" method="post">
