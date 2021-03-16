@@ -1,6 +1,16 @@
 <?php
+session_start();
+
+// mengecek user login atau tidak
+if (isset($_SESSION['username'])) {
+    header('Location: main.php');
+    return false;
+}
+
 $url = "http://localhost/newGRATIEKS/";
 $ttl = "Register | GRATIEKS";
+
+include 'app/register_post.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,19 +83,46 @@ $ttl = "Register | GRATIEKS";
         <div class="login-logo">
             <img src="<?= $url ?>assets/dist/img/LOGO1.png" alt="logo" width="30%">
         </div>
-        <div class="text-center">        
+        <div class="text-center">
             <h3>Aplikasi Gerakan Tiga Kali Ekspor</h3>
             <p>Balai Karantina Pertanian Kelas II Gorontalo</p>
         </div>
+        <?php
+        if (isset($_SESSION['msg_berhasil_data'])) {
+        ?>
+            <div class="mt-2">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <span class="fas fa-check mr-2"></span> <?= flash('msg_berhasil_data'); ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        <?php
+        }
+
+        if (isset($_SESSION['msg_gagal_data'])) {
+        ?>
+            <div class="mt-2">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <span class="fas fa-exclamation mr-2"></span> <?= flash('msg_gagal_data'); ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        <?php
+        }
+        ?>
         <div class="card">
             <div class="card-body login-card-body">
 
                 <form action="" method="post">
                     <div class="form-group mb-3">
-                        <input type="text" name="username" class="form-control" placeholder="Nama">
+                        <input type="text" name="nama" class="form-control" placeholder="Nama">
                     </div>
                     <div class="form-group mb-3">
-                        <input type="text" name="username" class="form-control" placeholder="NIP">
+                        <input type="text" name="nip" class="form-control" placeholder="NIP">
                     </div>
                     <div class="form-group mb-3">
                         <input type="text" name="username" class="form-control" placeholder="Username">
@@ -94,11 +131,11 @@ $ttl = "Register | GRATIEKS";
                         <input type="password" name="password" class="form-control" placeholder="Password">
                     </div>
                     <div class="form-group mb-3">
-                        <input type="password" name="password" class="form-control" placeholder="Konfirmasi Password">
+                        <input type="password" name="konfir_password" class="form-control" placeholder="Konfirmasi Password">
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <button type="submit" name="login" class="btn btn-primary btn-block">Register</button>
+                            <button type="submit" id="submit" name="register" class="btn btn-primary btn-block">Register</button>
                         </div>
                     </div>
                 </form>
@@ -124,6 +161,14 @@ $ttl = "Register | GRATIEKS";
     <script src="<?= $url; ?>assets/dist/js/demo.js"></script>
     <!-- Select2 -->
     <script src="<?= $url; ?>assets/plugins/select2/js/select2.full.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            window.setTimeout(function() {
+                $(".alert").fadeTo(500, 0).slideUp(500, function() {
+                    $(this).remove();
+                });
+            }, 3000);
+        });
     </script>
 
 </body>

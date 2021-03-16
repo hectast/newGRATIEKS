@@ -1,10 +1,25 @@
 <?php
+
+session_start();
+error_reporting(0);
+
+include '../../../koneksi.php';
+include 'app/login_cek_token.php';
+
+// mengecek admin login atau tidak
+if (!isset($_SESSION['username'])) {
+  ?>
+    <script>
+      alert('Anda harus login untuk mengakses halaman ini!');
+      window.location.href = '../../../index.php';
+    </script>
+  <?php
+  return false;
+}
+
 $jdl = "Share Lokasi";
 $ttl = $jdl . " | GRATIEKS";
 ?>
-
-
-<?php include "../../../koneksi.php" ?>
 
 <?php include 'lokasi_post.php'; ?>
 

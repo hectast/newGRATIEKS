@@ -1,8 +1,23 @@
 <?php
+session_start();
+error_reporting(0);
+
+include '../../../koneksi.php';
+include 'app/login_cek_token.php';
+
+// mengecek admin login atau tidak
+if (!isset($_SESSION['username'])) {
+?>
+    <script>
+        alert('Anda harus login untuk mengakses halaman ini!');
+        window.location.href = '../../../index.php';
+    </script>
+<?php
+    return false;
+}
 $jdl = "Detail Data Gratieks";
 $ttl = $jdl . " | GRATIEKS";
 ?>
-<?php include "../../../koneksi.php" ?>
 
 <?php include "../../layout/header.php" ?>
 
@@ -23,9 +38,9 @@ $row = mysqli_fetch_assoc($result);
                     <div class="card">
                         <div class="card-body">
                             <h4><?= $ttl; ?></h4><br><br>
-                            
+
                             <h1>Komoditas : <?= $row['komodi'] ?></h1>
-                            <h3 style="color: #949191;">Sub Sektor : <?= $row['subsektor'];?></h3><br>
+                            <h3 style="color: #949191;">Sub Sektor : <?= $row['subsektor']; ?></h3><br>
                             <table class="table table-striped">
                                 <!-- <tr>
                                     <td>Komoditas</td>
@@ -47,12 +62,11 @@ $row = mysqli_fetch_assoc($result);
                                     <td>:</td>
                                     <td>
                                         <?php
-                                            if ($row['olahan'] == 'Ada') {
+                                        if ($row['olahan'] == 'Ada') {
                                         ?>
                                             <div class="badge badge-success"><?= $row['olahan'] ?></div>
                                         <?php
-                                        } 
-                                            else {
+                                        } else {
                                         ?>
                                             <div class="badge badge-danger"><?= $row['olahan'] ?></div>
                                         <?php
@@ -74,13 +88,12 @@ $row = mysqli_fetch_assoc($result);
                                     <td>Penerapan GAP</td>
                                     <td>:</td>
                                     <td>
-                                    <?php
-                                            if ($row['gap'] == 'Sudah') {
+                                        <?php
+                                        if ($row['gap'] == 'Sudah') {
                                         ?>
                                             <div class="badge badge-success"><?= $row['gap'] ?></div>
                                         <?php
-                                        } 
-                                            else {
+                                        } else {
                                         ?>
                                             <div class="badge badge-danger"><?= $row['gap'] ?></div>
                                         <?php
@@ -92,13 +105,12 @@ $row = mysqli_fetch_assoc($result);
                                     <td>Gudang Penyimpanan</td>
                                     <td>:</td>
                                     <td>
-                                    <?php
-                                            if ($row['gudang'] == 'Ada') {
+                                        <?php
+                                        if ($row['gudang'] == 'Ada') {
                                         ?>
                                             <div class="badge badge-success"><?= $row['gudang'] ?></div>
                                         <?php
-                                        } 
-                                            else {
+                                        } else {
                                         ?>
                                             <div class="badge badge-danger"><?= $row['gudang'] ?></div>
                                         <?php
@@ -145,13 +157,12 @@ $row = mysqli_fetch_assoc($result);
                                     <td>Keberadaan Penyuluh</td>
                                     <td>:</td>
                                     <td>
-                                    <?php
-                                            if ($row['penyuluh'] == 'Ada') {
+                                        <?php
+                                        if ($row['penyuluh'] == 'Ada') {
                                         ?>
                                             <div class="badge badge-success"><?= $row['penyuluh'] ?></div>
                                         <?php
-                                        } 
-                                            else {
+                                        } else {
                                         ?>
                                             <div class="badge badge-danger"><?= $row['penyuluh'] ?></div>
                                         <?php
@@ -173,13 +184,12 @@ $row = mysqli_fetch_assoc($result);
                                     <td>Koperasi</td>
                                     <td>:</td>
                                     <td>
-                                    <?php
-                                            if ($row['koperasi'] == 'Ada') {
+                                        <?php
+                                        if ($row['koperasi'] == 'Ada') {
                                         ?>
                                             <div class="badge badge-success"><?= $row['koperasi'] ?></div>
                                         <?php
-                                        } 
-                                            else {
+                                        } else {
                                         ?>
                                             <div class="badge badge-danger"><?= $row['koperasi'] ?></div>
                                         <?php
@@ -196,13 +206,12 @@ $row = mysqli_fetch_assoc($result);
                                     <td>Binaan Pemda / Ditjen Teknis</td>
                                     <td>:</td>
                                     <td>
-                                    <?php
-                                            if ($row['bina'] == 'Sudah') {
+                                        <?php
+                                        if ($row['bina'] == 'Sudah') {
                                         ?>
                                             <div class="badge badge-success"><?= $row['bina'] ?></div>
                                         <?php
-                                        } 
-                                            else {
+                                        } else {
                                         ?>
                                             <div class="badge badge-danger"><?= $row['bina'] ?></div>
                                         <?php

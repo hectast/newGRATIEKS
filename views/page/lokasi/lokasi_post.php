@@ -12,6 +12,7 @@ if ( isset($_POST['simpan_data'])) {
 	$to_query = $mysqli->prepare($query);
 	$to_query->execute();
 	$result_query = $to_query->get_result();
+	
 	if (mysqli_num_rows($result_query) > 0) {
 		flash("msg_gagal_data", "Nama lokasi yang anda masukkan sudah ada!");
 		return false;
