@@ -13,7 +13,7 @@ function tampil_data($mysqli)
     <tr>
     <td><?= $no++; ?></td>
     <td><?= $row['nama_lokasi']; ?></td>
-    <td><a href="<?= $row['latlong']; ?>"><?= $row['latlong']; ?></a></td>
+    <td><a href="<?= $row['latlong']; ?>" class="btn btn-default" target="_blank"><i class="fas fa-link"></i></a></td>
     <td>
     	<form action="" method="post">
     	<input type="hidden" name="id_lokasi" value="<?= $id_lokasi1 ?>">
