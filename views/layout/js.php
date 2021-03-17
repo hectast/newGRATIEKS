@@ -34,34 +34,38 @@
         $('.select2bs4').select2({
             theme: 'bootstrap4'
         });
+        
+        $(document).ready(function() {
+            bsCustomFileInput.init();
+        });
 
 
         $(document).ready(function() {
-        window.setTimeout(function() {
-            $(".alert").fadeTo(500, 0).slideUp(500, function(){
-                $(this).remove();
-            });
-        }, 3000);
-        });   
+            window.setTimeout(function() {
+                $(".alert").fadeTo(500, 0).slideUp(500, function() {
+                    $(this).remove();
+                });
+            }, 3000);
+        });
 
         //-------------
         //- DONUT CHART -
         //-------------
-        <?php   
-            $query_donut_hortikultura1 = $mysqli->query("SELECT SUM(desa) as jumlah_desa FROM tbl_gratieks WHERE subsektor='Hortikultura'");
-            $rows_hortikultura1 = $query_donut_hortikultura1->fetch_assoc();
+        <?php
+        $query_donut_hortikultura1 = $mysqli->query("SELECT SUM(desa) as jumlah_desa FROM tbl_gratieks WHERE subsektor='Hortikultura'");
+        $rows_hortikultura1 = $query_donut_hortikultura1->fetch_assoc();
 
-            $query_donut_tanaman_pangan1 = $mysqli->query("SELECT SUM(desa) as jumlah_desa FROM tbl_gratieks WHERE subsektor='Tanaman Pangan'");
-            $rows_tanaman_pangan1 = $query_donut_tanaman_pangan1->fetch_assoc();
+        $query_donut_tanaman_pangan1 = $mysqli->query("SELECT SUM(desa) as jumlah_desa FROM tbl_gratieks WHERE subsektor='Tanaman Pangan'");
+        $rows_tanaman_pangan1 = $query_donut_tanaman_pangan1->fetch_assoc();
 
-            $query_donut_perkebunan1 = $mysqli->query("SELECT SUM(desa) as jumlah_desa FROM tbl_gratieks WHERE subsektor='Perkebunan'");
-            $rows_perkebunan1 = $query_donut_perkebunan1->fetch_assoc();
+        $query_donut_perkebunan1 = $mysqli->query("SELECT SUM(desa) as jumlah_desa FROM tbl_gratieks WHERE subsektor='Perkebunan'");
+        $rows_perkebunan1 = $query_donut_perkebunan1->fetch_assoc();
 
-            $query_donut_peternakan1 = $mysqli->query("SELECT SUM(desa) as jumlah_desa FROM tbl_gratieks WHERE subsektor='Peternakan'");
-            $rows_peternakan1 = $query_donut_peternakan1->fetch_assoc();
+        $query_donut_peternakan1 = $mysqli->query("SELECT SUM(desa) as jumlah_desa FROM tbl_gratieks WHERE subsektor='Peternakan'");
+        $rows_peternakan1 = $query_donut_peternakan1->fetch_assoc();
         ?>
         // Get context with jQuery - using jQuery's .get() method.
-        
+
         var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
         var donutData = {
             labels: [
@@ -90,18 +94,18 @@
         //-------------
         //- PIE CHART -
         //-------------
-        <?php   
-            $query_donut_hortikultura = $mysqli->query("SELECT * FROM tbl_gratieks WHERE subsektor='Hortikultura'");
-            $rows_hortikultura = mysqli_num_rows($query_donut_hortikultura);
+        <?php
+        $query_donut_hortikultura = $mysqli->query("SELECT * FROM tbl_gratieks WHERE subsektor='Hortikultura'");
+        $rows_hortikultura = mysqli_num_rows($query_donut_hortikultura);
 
-            $query_donut_tanaman_pangan = $mysqli->query("SELECT * FROM tbl_gratieks WHERE subsektor='Tanaman Pangan'");
-            $rows_tanaman_pangan = mysqli_num_rows($query_donut_tanaman_pangan);
+        $query_donut_tanaman_pangan = $mysqli->query("SELECT * FROM tbl_gratieks WHERE subsektor='Tanaman Pangan'");
+        $rows_tanaman_pangan = mysqli_num_rows($query_donut_tanaman_pangan);
 
-            $query_donut_perkebunan = $mysqli->query("SELECT * FROM tbl_gratieks WHERE subsektor='Perkebunan'");
-            $rows_perkebunan = mysqli_num_rows($query_donut_perkebunan);
+        $query_donut_perkebunan = $mysqli->query("SELECT * FROM tbl_gratieks WHERE subsektor='Perkebunan'");
+        $rows_perkebunan = mysqli_num_rows($query_donut_perkebunan);
 
-            $query_donut_peternakan = $mysqli->query("SELECT * FROM tbl_gratieks WHERE subsektor='Peternakan'");
-            $rows_peternakan = mysqli_num_rows($query_donut_peternakan);
+        $query_donut_peternakan = $mysqli->query("SELECT * FROM tbl_gratieks WHERE subsektor='Peternakan'");
+        $rows_peternakan = mysqli_num_rows($query_donut_peternakan);
         ?>
         // Get context with jQuery - using jQuery's .get() method.
         var pieChartCanvas = $('#pieChart').get(0).getContext('2d')

@@ -34,6 +34,9 @@
                       <a href="<?= $url ?>views/page/lokasi/lokasi.php" class="nav-link nvlnk">Laporan</a>
                   </li>
                   <li class="nav-item">
+                      <a href="<?= $url ?>views/page/setting_data/setting_data.php" class="nav-link nvlnk">Setting Data</a>
+                  </li>
+                  <li class="nav-item">
                       <a class="nav-link nvlnk" href="<?= $url; ?>app/logout.php" onclick="return confirm('Yakin ingin keluar dari halaman ini?')">
                           <i class="fas fa-sign-out-alt"></i>
                           Logout
