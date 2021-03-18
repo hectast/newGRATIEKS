@@ -1,7 +1,22 @@
 <?php
+session_start();
+error_reporting(0);
+
+include '../../../koneksi.php';
+include 'app/login_cek_token.php';
+include '../../../app/flash_message.php';
+// mengecek admin login atau tidak
+if (!isset($_SESSION['username'])) {
+?>
+    <script>
+        alert('Anda harus login untuk mengakses halaman ini!');
+        window.location.href = '../../../index.php';
+    </script>
+<?php
+    return false;
+}
 $jdl = "Laporan";
 $ttl = $jdl . " | GRATIEKS";
-error_reporting(0);
 ?>
 <?php include "../../../koneksi.php" ?>
 

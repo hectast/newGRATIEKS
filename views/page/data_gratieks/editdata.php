@@ -62,7 +62,7 @@ $id = $_GET['id'];
                                         </div>
                                         <div class="form-group">
                                             <label>Kapasitas Produksi / Sekali Panen (Ton / Ha)</label>
-                                            <input type="text" value="<?= $d['kapasitas'] ?>" name="kapasitas" class="form-control" autocomplete="off">
+                                            <input type="number" value="<?= $d['kapasitas'] ?>" name="kapasitas" class="form-control" autocomplete="off">
                                         </div>
                                     </div>
 
@@ -81,7 +81,7 @@ $id = $_GET['id'];
                                         </div>
                                         <div class="form-group">
                                             <label>Harga / Kg (Rp. / Kg)</label>
-                                            <input type="text" value="<?= $d['harga'] ?>" name="harga" class="form-control" autocomplete="off">
+                                            <input type="number" value="<?= $d['harga'] ?>" name="harga" class="form-control" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -130,7 +130,7 @@ $id = $_GET['id'];
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label>Luas Lahan (Ha)</label>
-                                            <input value="<?= $d['lahan'] ?>" name="lahan" type="text" class="form-control">
+                                            <input value="<?= $d['lahan'] ?>" name="lahan" type="number" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label>Status Lahan</label>

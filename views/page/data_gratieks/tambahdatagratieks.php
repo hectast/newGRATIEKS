@@ -15,6 +15,9 @@ if (!isset($_SESSION['username'])) {
   <?php
   return false;
 }
+
+$tim = $_SESSION['nama'];
+
 $jdl = "Tambah Data Gratieks";
 $ttl = $jdl . " | GRATIEKS";
 ?>
@@ -199,6 +202,7 @@ $ttl = $jdl . " | GRATIEKS";
                                         <div class="form-group">
                                         <input type="hidden" class="form-control" value="<?= TanggalIndonesia(date('Y-m-d')) ?>" name="tgl">
                                         <input type="hidden" name="waktu" value="<?= $waktu ?>">
+                                        <input type="hidden" name="tim" value="<?= $tim; ?>">
                                             <button class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
                                             <a href="datagratieks.php" class="btn btn-success"><i class="fa fa-arrow-left"></i> Kembali</a>
                                         </div>
