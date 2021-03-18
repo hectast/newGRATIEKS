@@ -40,13 +40,14 @@ $bina      = $_POST['bina'];
 $bantuan   = $_POST['bantuan'];
 $rencana   = $_POST['rencana'];
 $peran     = $_POST['peran'];
+$tim       = $_POST['tim'];
 $tgl       = $_POST['tgl'];
 $waktu     = $_POST['waktu'];
 
 $query = "INSERT INTO tbl_gratieks VALUES  ('','$komodi', '$subsektor','$kapasitas','$olahan','$bentuk','$harga', '$gap','$gudang',
 '$pasar','$labuh','$desa','$kec','$lahan','$statuslah', '$poktan',
 '$penyuluh','$infra','$modal','$koperasi', '$mitra','$bina',
-'$bantuan','$rencana','$peran','Sementara','$tgl','$waktu')";
+'$bantuan','$rencana','$peran','$tim','$tgl','$waktu')";
 
 $simpan = $mysqli->query($query);
 if($simpan){
