@@ -32,7 +32,7 @@ $ttl = $jdl . " | GRATIEKS";
             ?>
                 <div class="mt-2">
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <span class="fe fe-check fe-16 mr-2"></span> <?= flash('msg_sukses_data'); ?>
+                        <span class="fas fa-check mr-2"></span> <?= flash('msg_sukses_data'); ?>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -47,7 +47,7 @@ $ttl = $jdl . " | GRATIEKS";
             ?>
                 <div class="mt-2">
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <span class="fe fe-check fe-16 mr-2"></span> <?= flash('msg_ubah_data'); ?>
+                        <span class="fas fa-check mr-2"></span> <?= flash('msg_ubah_data'); ?>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -63,7 +63,7 @@ $ttl = $jdl . " | GRATIEKS";
             ?>
                 <div class="mt-2">
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <span class="fe fe-check fe-16 mr-2"></span> <?= flash('msg_hapus_data'); ?>
+                        <span class="fas fa-check mr-2"></span> <?= flash('msg_hapus_data'); ?>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

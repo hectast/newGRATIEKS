@@ -60,7 +60,7 @@ $ttl = $jdl . " | GRATIEKS";
                             <?php
                             if (isset($_GET['download'])) {
                             ?>
-                                <a href="<?= $url; ?>/views/page/setting_data/setting_data.php" class="btn btn-link btn-block btn-sm">Tutup List Data</a>
+                                <a href="<?= $url; ?>views/page/setting_data/setting_data.php" class="btn btn-link btn-block btn-sm">Tutup List Data</a>
                             <?php
                             } else {
                             ?>
@@ -126,7 +126,7 @@ $ttl = $jdl . " | GRATIEKS";
                             <?php
                             if (isset($_GET['restore'])) {
                             ?>
-                                <a href="<?= $url; ?>/views/page/setting_data/setting_data.php" class="btn btn-link btn-block btn-sm">Tutup List Data</a>
+                                <a href="<?= $url; ?>views/page/setting_data/setting_data.php" class="btn btn-link btn-block btn-sm">Tutup List Data</a>
                             <?php
                             } else {
                             ?>

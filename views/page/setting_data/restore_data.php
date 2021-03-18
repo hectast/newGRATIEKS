@@ -1,20 +1,4 @@
 <?php
-session_start();
-
-include '../../../koneksi.php';
-include '../../../app/login_cek_token.php';
-
-// mengecek admin login atau tidak
-if (!isset($_SESSION['username'])) {
-?>
-    <script>
-        alert('Anda harus login untuk mengakses halaman ini!');
-        window.location.href = '../../../index.php';
-    </script>
-<?php
-    return false;
-}
-
 /* at the top of page */
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])) {
     /* 
@@ -26,8 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERV
     /* choose the appropriate page to redirect users */
     die(header('location: setting_data.php'));
 }
-
-
+include '../../../koneksi.php';
 if (isset($_POST['submit_restore'])) {
     function restoreMysqlDB($filePath, $mysqli)
     {
@@ -60,11 +43,6 @@ if (isset($_POST['submit_restore'])) {
                     "type" => "error",
                     "message" => $error
                 );
-            } else {
-                $response = array(
-                    "type" => "success",
-                    "message" => "Restore Data Berhasil."
-                );
             }
         } // end if file exists
         return $response;
@@ -80,11 +58,13 @@ if (isset($_POST['submit_restore'])) {
                 "message" => "Invalid File Type"
             );
         } else {
+            $namefile = $_FILES["file_sql"]["name"];
             $uploaddir = '../../../restore/';
-            $alamatfile = $uploaddir . $_FILES["file_sql"]["name"];
+            $alamatfile = $uploaddir.$namefile;
             if (is_uploaded_file($_FILES["file_sql"]["tmp_name"])) {
                 move_uploaded_file($_FILES["file_sql"]["tmp_name"], $alamatfile);
-                $response = restoreMysqlDB($_FILES["file_sql"]["name"], $mysqli);
+                $response = restoreMysqlDB($alamatfile, $mysqli);
+                unlink($alamatfile);
 
                 flash("msg_sukses_data", "Restore data berhasil!");
             }

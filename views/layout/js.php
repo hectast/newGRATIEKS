@@ -76,7 +76,7 @@
             ],
             datasets: [{
                 data: [<?= $rows_hortikultura1['jumlah_desa'] ?>, <?= $rows_tanaman_pangan1['jumlah_desa'] ?>, <?= $rows_perkebunan1['jumlah_desa'] ?>, <?= $rows_peternakan1['jumlah_desa'] ?>],
-                backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+                backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef'],
             }]
         }
         var donutOptions = {
@@ -118,7 +118,7 @@
             ],
             datasets: [{
                 data: [<?= $rows_hortikultura; ?>, <?= $rows_tanaman_pangan; ?>, <?= $rows_perkebunan; ?>, <?= $rows_peternakan; ?>],
-                backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+                backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef'],
             }]
         }
         var pieOptions = {

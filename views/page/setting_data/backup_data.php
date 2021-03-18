@@ -1,21 +1,4 @@
 <?php
-
-session_start();
-
-include '../../../koneksi.php';
-include '../../../app/login_cek_token.php';
-
-// mengecek admin login atau tidak
-if (!isset($_SESSION['username'])) {
-?>
-    <script>
-        alert('Anda harus login untuk mengakses halaman ini!');
-        window.location.href = '../../../index.php';
-    </script>
-<?php
-    return false;
-}
-
 /* at the top of page */
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])) {
     /* 
@@ -44,18 +27,17 @@ if (isset($_POST['backup'])) {
         $tables = is_array($tables) ? $tables : explode(',', $tables);
     }
     foreach ($tables as $table) {
-        $result = $link->query("SELECT * FROM {$table}");
+        $result = $link->query("SELECT * FROM $table");
         $num_fields = mysqli_num_fields($result);
-        $return .= "DROP TABLE $table;";
-        $result2 = $link->query("SHOW CREATE TABLE $table");
-        $row2 = $result2->fetch_row();
+        $return .= 'DROP TABLE '.$table.';';
+        $row2 = mysqli_fetch_row($mysqli->query('SHOW CREATE TABLE '.$table));
         $return .= "\n\n" . $row2[1] . ";\n\n";
         for ($i = 0; $i < $num_fields; $i++) {
-            while ($row = $result->fetch_row()) {
+            while ($row = mysqli_fetch_row($result)) {
                 $return .= 'INSERT INTO ' . $table . ' VALUES(';
                 for ($j = 0; $j < $num_fields; $j++) {
                     $row[$j] = addslashes($row[$j]);
-                    $row[$j] = preg_replace("\n", "\\n", $row[$j]);
+                    $row[$j] = str_replace("\n", "\\n", $row[$j]);
                     if (isset($row[$j])) {
                         $return .= '"' . $row[$j] . '"';
                     } else {
