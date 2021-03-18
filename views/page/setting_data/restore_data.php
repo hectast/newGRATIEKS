@@ -1,4 +1,32 @@
 <?php
+session_start();
+
+include '../../../koneksi.php';
+include '../../../app/login_cek_token.php';
+
+// mengecek admin login atau tidak
+if (!isset($_SESSION['username'])) {
+?>
+    <script>
+        alert('Anda harus login untuk mengakses halaman ini!');
+        window.location.href = '../../../index.php';
+    </script>
+<?php
+    return false;
+}
+
+/* at the top of page */
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])) {
+    /* 
+           Up to you which header to send, some prefer 404 even if 
+           the files does exist for security
+        */
+    header('HTTP/1.0 403 Forbidden', TRUE, 403);
+
+    /* choose the appropriate page to redirect users */
+    die(header('location: setting_data.php'));
+}
+
 
 if (isset($_POST['submit_restore'])) {
     function restoreMysqlDB($filePath, $mysqli)
