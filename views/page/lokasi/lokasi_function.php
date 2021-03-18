@@ -1,5 +1,17 @@
 <?php 
 
+/* at the top of page */
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])) {
+    /* 
+           Up to you which header to send, some prefer 404 even if 
+           the files does exist for security
+        */
+    header('HTTP/1.0 403 Forbidden', TRUE, 403);
+
+    /* choose the appropriate page to redirect users */
+    die(header('location: lokasi.php'));
+}
+
 function tampil_data($mysqli)
 {	
 
@@ -13,11 +25,11 @@ function tampil_data($mysqli)
     <tr>
     <td><?= $no++; ?></td>
     <td><?= $row['nama_lokasi']; ?></td>
-    <td><a href="<?= $row['latlong']; ?>"><?= $row['latlong']; ?></a></td>
+    <td><a href="<?= $row['latlong']; ?>" class="btn btn-default" target="_blank"><i class="fas fa-link"></i></a></td>
     <td>
     	<form action="" method="post">
     	<input type="hidden" name="id_lokasi" value="<?= $id_lokasi1 ?>">
-    	<button type="button" class="btn btn-xs btn-info" data-toggle="modal" data-target="#defaultModal<?= $id_lokasi1; ?>"><i class="fa fa-edit"></i></button><button type="submit" name="hapus_data" onclick="return confirm('Yakin menghapus data ini?')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button>
+    	<button type="button" class="btn btn-xs btn-info" data-toggle="modal" data-target="#defaultModal<?= $id_lokasi1; ?>"><i class="fa fa-edit"></i></button> <button type="submit" name="hapus_data" onclick="return confirm('Yakin menghapus data ini?')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button>
     	</form>
     </td>
    	</tr>
@@ -36,14 +48,20 @@ function tampil_data($mysqli)
                             <input type="hidden" name="id_lokasi" value="<?= $id_lokasi1; ?>">
                             <div class="form-group">
                                 <label>Nama Lokasi (Desa/Kec/Kab) - </label>
-                                <select class="form-control select2" id="<?= $no++; ?>" name="nama_lokasi">
-                                    <option>--Pilih Lokasi--</option>
+                                <select class="form-control select2" id="<?= $no; ?>" name="nama_lokasi">
+                                    <option>--Pilih Nama Lokasi--</option>
                                     <?php
-                                    $query2 = $mysqli->query("SELECT kec FROM tbl_gratieks");
+                                    $query2 = $mysqli->query("SELECT * FROM tbl_gratieks");
                                     while($row2 = $query2->fetch_assoc()) {
-                                        echo "
-                                            <option value='{$row2['kec']}'>{$row2['kec']}</option>
-                                        ";
+                                        if ($row2['kec'] == $nama_lokasi1) {                                            
+                                            echo "
+                                                <option value='{$row2['kec']}' selected>{$row2['kec']}</option>
+                                            ";
+                                        } else {
+                                            echo "
+                                                <option value='{$row2['kec']}'>{$row2['kec']}</option>
+                                            ";
+                                        }
                                     }
                                     ?>
                                 </select>

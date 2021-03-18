@@ -1,10 +1,25 @@
 <?php
+
+session_start();
+error_reporting(0);
+
+include '../../../koneksi.php';
+include 'app/login_cek_token.php';
+
+// mengecek admin login atau tidak
+if (!isset($_SESSION['username'])) {
+  ?>
+    <script>
+      alert('Anda harus login untuk mengakses halaman ini!');
+      window.location.href = '../../../index.php';
+    </script>
+  <?php
+  return false;
+}
+
 $jdl = "Share Lokasi";
 $ttl = $jdl . " | GRATIEKS";
 ?>
-
-
-<?php include "../../../koneksi.php" ?>
 
 <?php include 'lokasi_post.php'; ?>
 
@@ -36,7 +51,7 @@ $ttl = $jdl . " | GRATIEKS";
             ?>
                 <div class="mt-2">
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <span class="fe fe-check fe-16 mr-2"></span> <?= flash('msg_ubah_data'); ?>
+                        <span class="fas fa-check mr-2"></span> <?= flash('msg_ubah_data'); ?>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -52,7 +67,7 @@ $ttl = $jdl . " | GRATIEKS";
             ?>
                 <div class="mt-2">
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <span class="fe fe-check fe-16 mr-2"></span> <?= flash('msg_hapus_data'); ?>
+                        <span class="fas fa-check mr-2"></span> <?= flash('msg_hapus_data'); ?>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -67,7 +82,7 @@ $ttl = $jdl . " | GRATIEKS";
             ?>
                 <div class="mt-2">
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <span class="fe fe-check fe-16 mr-2"></span> <?= flash('msg_gagal_data'); ?>
+                        <span class="fas fa-check mr-2"></span> <?= flash('msg_gagal_data'); ?>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
