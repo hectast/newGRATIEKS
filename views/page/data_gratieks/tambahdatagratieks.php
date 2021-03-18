@@ -38,7 +38,7 @@ $ttl = $jdl . " | GRATIEKS";
                                         </div>
                                         <div class="form-group">
                                             <label>Kapasitas Produksi / Sekali Panen (Ton / Ha)</label>
-                                            <input type="text" name="kapasitas" class="form-control" autocomplete="off">
+                                            <input type="number" name="kapasitas" class="form-control" autocomplete="off">
                                         </div>
                                     </div>
 
@@ -57,7 +57,7 @@ $ttl = $jdl . " | GRATIEKS";
                                         </div>
                                         <div class="form-group">
                                             <label>Harga / Kg (Rp. / Kg)</label>
-                                            <input type="text" name="harga" class="form-control" autocomplete="off">
+                                            <input type="number" name="harga" class="form-control" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@ $ttl = $jdl . " | GRATIEKS";
                                         </div>
                                         <div class="form-group">
                                             <label>Nama Desa/Kecamatan/Kabupaten</label>
-                                            <input name="kec" type="text" class="form-control">
+                                              <input name="kec" type="text" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +106,7 @@ $ttl = $jdl . " | GRATIEKS";
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label>Luas Lahan (Ha)</label>
-                                            <input name="lahan" type="text" class="form-control">
+                                            <input name="lahan" type="number" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label>Status Lahan</label>

@@ -28,7 +28,15 @@
 
         //Initialize Select2 Elements
         $('.select2').select2({
-            theme: 'bootstrap4'
+            theme: 'bootstrap4',
+        });
+        $('.select2-cetak').select2({
+            theme: 'bootstrap4',
+            placeholder: '-Pilih Komoditas-'
+        });
+        $('.select3-cetak').select2({
+            theme: 'bootstrap4',
+            placeholder: '-Pilih Desa/Kecamatan/Kabupaten-'
         });
         //Initialize Select2 Elements
         $('.select2bs4').select2({
