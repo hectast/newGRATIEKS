@@ -11,29 +11,4 @@ ErrorDocument 404 http://localhost/newGRATIEKS/404.php
 	Deny from all
 </Files>
 
-<Files hapusdata.php>
-	Order Allow,Deny
-	Deny from all
-</Files>
-
-<Files proseseditgratieks.php>
-	Order Allow,Deny
-	Deny from all
-</Files>
-
-<Files prosesinputgratieks.php>
-	Order Allow,Deny
-	Deny from all
-</Files>
-
-<Files lokasi_post.php>
-	Order Allow,Deny
-	Deny from all
-</Files>
-
-<Files lokasi_function.php>
-	Order Allow,Deny
-	Deny from all
-</Files>
-
 Options All -Indexes
