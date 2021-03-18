@@ -4,7 +4,7 @@ error_reporting(0);
 
 include '../../../koneksi.php';
 include 'app/login_cek_token.php';
-
+include '../../../app/flash_message.php';
 // mengecek admin login atau tidak
 if (!isset($_SESSION['username'])) {
 ?>
@@ -27,9 +27,56 @@ $ttl = $jdl . " | GRATIEKS";
 <div class="content-wrapper">
     <div class="content">
         <div class="container">
+             <?php
+            if (isset($_SESSION['msg_sukses_data'])) {
+            ?>
+                <div class="mt-2">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <span class="fe fe-check fe-16 mr-2"></span> <?= flash('msg_sukses_data'); ?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
+
+            <?php
+            if (isset($_SESSION['msg_ubah_data'])) {
+            ?>
+                <div class="mt-2">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <span class="fe fe-check fe-16 mr-2"></span> <?= flash('msg_ubah_data'); ?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
+
+
+            <?php
+            if (isset($_SESSION['msg_hapus_data'])) {
+            ?>
+                <div class="mt-2">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <span class="fe fe-check fe-16 mr-2"></span> <?= flash('msg_hapus_data'); ?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
             <div class="row mt-2">
+                
                 <div class="col-12">
                     <div class="card">
+
                         <div class="card-body">
                             <h4><?= $ttl; ?></h4>
                             <a href="tambahdatagratieks.php" class="btn btn-primary"><i class="fa fa-plus"></i> Data Gratieks </a><br><br>

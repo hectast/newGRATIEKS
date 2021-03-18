@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 /* at the top of page */
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])) {
     /* 
@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERV
 }
 
 include "../../../koneksi.php"; 
+include '../../../app/flash_message.php';
 
 
 $komodi    = $_POST['komodi'];
@@ -51,10 +52,10 @@ $simpan = $mysqli->query($query);
 if($simpan){
     echo "
     <script>
-    alert('Data Berhasil Ditambah');
     window.location.href='datagratieks.php';
     </script>
     ";
+    flash("msg_sukses_data", "Data berhasil di simpan");
 }else{
     echo "
     <script>

@@ -5,10 +5,8 @@ CREATE TABLE `lokasi` (
   `nama_lokasi` varchar(100) NOT NULL,
   `latlong` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
-INSERT INTO lokasi VALUES("","","");
-INSERT INTO lokasi VALUES("","","");
 INSERT INTO lokasi VALUES("","","");
 
 
@@ -45,10 +43,8 @@ CREATE TABLE `tbl_gratieks` (
   `tgl` varchar(20) NOT NULL,
   `waktu` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
-INSERT INTO tbl_gratieks VALUES("","","","","","","","","","","","","","","","","","","","","","","","","","","","");
-INSERT INTO tbl_gratieks VALUES("","","","","","","","","","","","","","","","","","","","","","","","","","","","");
 INSERT INTO tbl_gratieks VALUES("","","","","","","","","","","","","","","","","","","","","","","","","","","","");
 INSERT INTO tbl_gratieks VALUES("","","","","","","","","","","","","","","","","","","","","","","","","","","","");
 
@@ -76,8 +72,10 @@ CREATE TABLE `user` (
   `username` varchar(16) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
+INSERT INTO user VALUES("","","","","");
+INSERT INTO user VALUES("","","","","");
 INSERT INTO user VALUES("","","","","");
 INSERT INTO user VALUES("","","","","");
 INSERT INTO user VALUES("","","","","");

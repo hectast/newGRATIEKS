@@ -28,7 +28,7 @@ $ttl = $jdl . " | GRATIEKS";
         <div class="container">
             <div class="card">
                 <div class="card-body">
-                    <img class="d-block w-100" height="100%" src="assets/dist/img/banner2.jpg" alt="First slide">
+                    <img class="d-block w-100" height="100%" src="assets/dist/img/banner2.JPG" alt="First slide">
                 </div>
             </div>
 

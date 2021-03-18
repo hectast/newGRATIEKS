@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 /* at the top of page */
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])) {
     /* 
@@ -12,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERV
 }
 
 include "../../../koneksi.php"; 
+include '../../../app/flash_message.php';
 
 $id        = $_POST['id'];
 $komodi    = $_POST['komodi'];
@@ -57,10 +60,10 @@ $update = $mysqli->query($query);
 if($update){
     echo "
     <script>
-    alert('Data Berhasil Diubah');
     window.location.href='datagratieks.php';
     </script>
     ";
+    flash("msg_ubah_data", "Data berhasil di ubah");
 }else{
     echo "
     <script>
